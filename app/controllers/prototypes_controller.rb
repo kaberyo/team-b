@@ -31,6 +31,7 @@ class PrototypesController < ApplicationController
       if prototype.user_id == current_user.id
         prototype.update(prototype_params)
       end
+      redirect_to :root, notice: 'your prototype was successfully updated'
   end
 
   private
