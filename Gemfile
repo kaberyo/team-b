@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.8'
 gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -27,3 +27,6 @@ group :development do
 end
 
 gem 'kaminari'
+
+gem 'thin', group: :production
+gem 'rails_12factor', group: :production
