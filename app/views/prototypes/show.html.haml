@@ -57,7 +57,10 @@
       %p
         %strong
           = link_to comment.user.name, "/users/#{comment.user_id}"
-          ：
-        = comment.text
+          = comment.text
+          = link_to '削除', "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
+
+          / - if user_signed_in? && current_user.id == @prototype.user_id
+          / = link_to '削除', "/prototypes/#{@prototype.id}", method: :delete
 
 
