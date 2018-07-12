@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'prototypes#index'
 
   resources :prototypes, only: [:index, :new, :create, :show, :destroy]do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   #destory を追加(岡)
   resources :users, only: [:show, :edit, :update]
