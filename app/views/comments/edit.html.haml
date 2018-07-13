@@ -1,3 +1,4 @@
+
 .container.proto-page
   %header.row.user-nav
     .col-md-6
@@ -46,8 +47,8 @@
 .container
   / ここからフォーム
   - if current_user
-    = form_tag("/prototypes/#{@prototype.id}/comments", method: :post) do
-      %textarea{:cols => "30", :name => "text", :placeholder => "コメントする", :rows => "2"}
+    = form_tag("/prototypes/#{@prototype.id}/comments/#{@comment.id}", method: :patch) do
+      %textarea{:cols => "30", :name => "text", :placeholder => "編集する", :rows => "2"}
       %input{:type => "submit", :value => "SENT"}/
 
 .comments
@@ -63,5 +64,6 @@
 
           / - if user_signed_in? && current_user.id == @prototype.user_id
           / = link_to '削除', "/prototypes/#{@prototype.id}", method: :delete
+
 
 
