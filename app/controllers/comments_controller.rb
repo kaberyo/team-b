@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
   def create
     if user_signed_in?
-      Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
-      redirect_to prototype_path(params[:prototype_id])
+      @comment = Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
+      # redirect_to prototype_path(params[:prototype_id])
+      respond_to do |format|
+      format.html { redirect_to prototype_path(params[:prototype_id])  }
+      format.json
+    end
     else
       redirect_to "/users/sign_in", method: :get
     end
