@@ -1,9 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
-    redirect_to prototype_path(params[:prototype_id])
+    if user_signed_in?
+      Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
+      redirect_to prototype_path(params[:prototype_id])
+    else
+      redirect_to "/users/sign_in", method: :get
+    end
   end
-
   def destroy
     comment = Comment.find(params[:id])
     if comment.user_id == current_user.id
