@@ -58,11 +58,8 @@
           %strong
             = link_to comment.user.name, "/users/#{comment.user_id}"
             = comment.text
-            - if user_signed_in? && current_user.id == comment.user_id
-              = link_to '削除', "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
-              = link_to '編集', "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", method: :get
-
+            / - if user_signed_in? && current_user.id == comment.user_id
+            /   = link_to '削除', "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
+            /   = link_to '編集', "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", method: :get
             / - if user_signed_in? && current_user.id == @prototype.user_id
             / = link_to '削除', "/prototypes/#{@prototype.id}", method: :delete
-
-

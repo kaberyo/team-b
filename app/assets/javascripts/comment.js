@@ -3,9 +3,8 @@ $(function(){
    var html = `<p>
                  <strong>
                    <a href=/users/${comment.user_id}>${comment.user_name}</a>
-                   ：
+                   ${comment.text}
                  </strong>
-                 ${comment.text}
                </p>`
    return html;
  }
