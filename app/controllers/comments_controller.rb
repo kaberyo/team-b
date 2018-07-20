@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
       redirect_to "/users/sign_in", method: :get
     end
   end
+
   def destroy
     comment = Comment.find(params[:id])
     if comment.user_id == current_user.id
